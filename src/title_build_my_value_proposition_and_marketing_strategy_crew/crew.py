@@ -1,7 +1,6 @@
 from crewai import Agent, Crew, Process, Task, LLM
 from crewai.project import CrewBase, agent, crew, task
 import os
-os.environ["ANTHROPIC_API_KEY"] = "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"
 
 
 @CrewBase

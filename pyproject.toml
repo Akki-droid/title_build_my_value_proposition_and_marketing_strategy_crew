@@ -1,0 +1,20 @@
+[project]
+name = "title_build_my_value_proposition_and_marketing_strategy_crew"
+version = "0.1.0"
+description = "title_build_my_value_proposition_and_marketing_strategy_crew using crewAI"
+authors = [{ name = "Your Name", email = "you@example.com" }]
+requires-python = ">=3.10,<=3.13"
+dependencies = [
+    "crewai[tools]>=0.79.4,<1.0.0"
+]
+
+[project.scripts]
+title_build_my_value_proposition_and_marketing_strategy_crew = "title_build_my_value_proposition_and_marketing_strategy_crew.main:run"
+run_crew = "title_build_my_value_proposition_and_marketing_strategy_crew.main:run"
+train = "title_build_my_value_proposition_and_marketing_strategy_crew.main:train"
+replay = "title_build_my_value_proposition_and_marketing_strategy_crew.main:replay"
+test = "title_build_my_value_proposition_and_marketing_strategy_crew.main:test"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"

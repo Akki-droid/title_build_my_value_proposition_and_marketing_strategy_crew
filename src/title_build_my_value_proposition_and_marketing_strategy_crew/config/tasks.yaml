@@ -58,11 +58,11 @@ create_value_proposition_canvas_task:
 analyze_4ps_task:
   description: 'You are a marketing analyst tasked with applying the 4Ps of Marketing framework (Product, Price, Place, Promotion) to help understand a target audience and how a product/service aligns with their needs. You will be provided with information about the target audience and the product/service, and you should use this information to answer a series of questions about each of the 4Ps.
 
-First, carefully read and analyze the following information about the target audience:
+First, carefully read and analyze the following information about the target audience from the input:
 
  {TARGET_AUDIENCE}
     
-Next, carefully read and analyze the following information about the product/service:
+Next, carefully read and analyze the following information about the product/service from input:
 
  {PRODUCT_DESCRIPTION}
 
@@ -123,11 +123,10 @@ Using the provided information, answer the following questions for each of the 4
 conduct_swot_analysis_task:
   description: 'You are tasked with conducting a SWOT (Strengths, Weaknesses, Opportunities, Threats) analysis for a target audience. This analysis will help create more targeted and effective marketing strategies. Follow these instructions carefully to complete the task.
 
-First, here is the description of the target audience you will be analyzing:
+After analysing the specific target audience description from the input
 
- {TARGET_AUDIENCE}
-
-Now, follow these steps to conduct the SWOT analysis:
+ {TARGET_AUDIENCE} 
+ follow these steps to conduct the SWOT analysis:
 
 1. Carefully read and analyze the target audience description.
 
@@ -173,17 +172,15 @@ Now, follow these steps to conduct the SWOT analysis:
   async_execution: false
   agent: swot_analyzer
   output_file: report_swot.md
+
 map_buyers_journey_task:
-  description: 'You are tasked with mapping out the Buyers Journey for a specific target audience and product/service. Your goal is to provide insights into how the target audience moves through each stage of the journey, from becoming aware of their problem to purchasing the product/service and beyond.
+  description: 'You are tasked with mapping out the Buyers Journey for a specific target audience and product description . Your goal is to provide insights into how the target audience moves through each stage of the journey, from becoming aware of their problem to purchasing the product/service and beyond.
 
 First, review the following information:
-
 {TARGET_AUDIENCE}
-
 {PRODUCT_DESCRIPTION}
 
-
-Now, follow these steps to complete the Buyers Journey mapping:
+Now, after analysing the specific target audience and product description follow these steps to complete the Buyers Journey mapping:
 
 1. Awareness Stage:
    - Identify common challenges or pain points the target audience faces.
@@ -239,5 +236,18 @@ For each stage, provide at least one key insight that can be used in a lead gene
   async_execution: false
   agent: buyers_journey_mapper
   output_file: report_buyers.md
+
+combine_task:
+  description: >
+    Combine outputs from create_value_proposition_canvas_task, analyze_4ps_task,  conduct_swot_analysis_task, map_buyers_journey_task into a single JSON object.
+  expected_output: >
+    A JSON object containing market trends and competitor analysis.
+  agent: output_formatter
+  inputs:
+    value_canvas: "{{create_value_proposition_canvas_task.output}}"
+    4p_task: "{{analyze_4ps_task.output}}"
+    swot_analysis: "{{conduct_swot_analysis_task}}"
+    buyers_journey: "{{map_buyers_journey_task.output}}"
+
 
 

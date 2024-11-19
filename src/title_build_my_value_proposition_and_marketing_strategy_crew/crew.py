@@ -1,6 +1,7 @@
 from crewai import Agent, Crew, Process, Task, LLM
 from crewai.project import CrewBase, agent, crew, task
 import os
+os.environ["ANTHROPIC_API_KEY"] = "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"
 
 
 @CrewBase
@@ -35,6 +36,13 @@ class TitleBuildMyValuePropositionAndMarketingStrategyCrewCrew():
             llm=LLM(api_key=os.getenv("ANTHROPIC_API_KEY"), model="anthropic/claude-3-5-sonnet-20241022", )
         )
 
+    @agent
+    def output_formatter(self) -> Agent:
+        return Agent(
+            config=self.agents_config['output_formatter'],
+            llm=LLM(api_key=os.getenv("ANTHROPIC_API_KEY"), model="anthropic/claude-3-5-sonnet-20241022", )
+        )
+
 
     @task
     def create_value_proposition_canvas_task(self) -> Task:
@@ -57,7 +65,6 @@ class TitleBuildMyValuePropositionAndMarketingStrategyCrewCrew():
         return Task(
             config=self.tasks_config['conduct_swot_analysis_task'],
             output_file='output/report_swot.md'
-            
         )
 
     @task
@@ -67,6 +74,12 @@ class TitleBuildMyValuePropositionAndMarketingStrategyCrewCrew():
             output_file='output/report_buyers.md'
         )
 
+    @task
+    def combine_task(self) -> Task:
+        return Task(
+            config=self.tasks_config['combine_task'],
+            output_file='output/reports_combine.md'
+        )
 
     @crew
     def crew(self) -> Crew:
@@ -77,3 +90,4 @@ class TitleBuildMyValuePropositionAndMarketingStrategyCrewCrew():
             process=Process.sequential,
             verbose=True,
         )
+

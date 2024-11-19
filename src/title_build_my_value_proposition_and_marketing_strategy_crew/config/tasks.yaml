@@ -2,9 +2,10 @@
 create_value_proposition_canvas_task:
   description: 'Create a Value Proposition Canvas that identifies customer jobs, pains,
     and gains, along with pain relievers, gain creators, and products/services based
-    on the provided target audience: <target_audience>{{TARGET_AUDIENCE}}</target_audience>
-    and product/service description: <product_or_service>{{PRODUCT_DESCRIPTION}}</product_or_service>.
+    on the provided target audience: {TARGET_AUDIENCE}
+    and product/service description: {PRODUCT_DESCRIPTION}
     Now, create the Value Proposition Canvas by following these steps:
+
 
 1. Customer Profile:
    a. Customer Jobs: Identify 3-5 key tasks or jobs the target audience is trying to accomplish. Include functional, emotional, and social jobs if applicable.
@@ -59,15 +60,11 @@ analyze_4ps_task:
 
 First, carefully read and analyze the following information about the target audience:
 
-<target_audience>
-{{TARGET_AUDIENCE}}
-</target_audience>
-
+ {TARGET_AUDIENCE}
+    
 Next, carefully read and analyze the following information about the product/service:
 
-<product_service>
-{{PRODUCT_SERVICE}}
-</product_service>
+ {PRODUCT_DESCRIPTION}
 
 Using the provided information, answer the following questions for each of the 4Ps. Be sure to base your answers on the specific details given about the target audience and product/service. If there isnt enough information to answer a question fully, make reasonable assumptions based on the available data and clearly state that you are making an assumption.'
 
@@ -128,9 +125,7 @@ conduct_swot_analysis_task:
 
 First, here is the description of the target audience you will be analyzing:
 
-<target_audience>
-{{TARGET_AUDIENCE}}
-</target_audience>
+ {TARGET_AUDIENCE}
 
 Now, follow these steps to conduct the SWOT analysis:
 
@@ -183,13 +178,10 @@ map_buyers_journey_task:
 
 First, review the following information:
 
-<target_audience>
-{{TARGET_AUDIENCE}}
-</target_audience>
+{TARGET_AUDIENCE}
 
-<product_or_service>
-{{PRODUCT_OR_SERVICE}}
-</product_or_service>
+{PRODUCT_DESCRIPTION}
+
 
 Now, follow these steps to complete the Buyers Journey mapping:
 

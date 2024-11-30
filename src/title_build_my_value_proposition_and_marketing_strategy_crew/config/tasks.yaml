@@ -204,9 +204,8 @@ Now, after analysing the specific target audience and product description follow
    - Describe the experience or result the audience expects after purchasing.
    - Suggest ways to ensure customer satisfaction or exceed expectations.
    - Identify opportunities for encouraging repeat business or referrals.
-
-For each stage, provide at least one key insight that can be used in a lead generation strategy.
-'
+   
+For each Stage, provide at least one key insight that can be used in a lead generation strategy.'
   expected_output: A structured analysis of the Buyers Journey stages with key insights for lead generation strategies. For each stage, provide at least one key insight that can be used in a lead generation strategy. Present your findings in the following format
 
     <buyers_journey>
@@ -239,9 +238,9 @@ For each stage, provide at least one key insight that can be used in a lead gene
 
 combine_task:
   description: >
-    Combine outputs from create_value_proposition_canvas_task, analyze_4ps_task, conduct_swot_analysis_task and map_buyers_journey_task into a single report.
+    Combine outputs from create_value_proposition_canvas_task, analyze_4ps_task, conduct_swot_analysis_task and map_buyers_journey_task into a single JSON .
   expected_output: >
-    Structured Output report containing combined outputs with proper heading and formating.
+    A Single JSON output report that consolidates the complete outputs of all tasks. Ensure that the complete output of each task is included with key insights, clearly segregated under headings labeled with the corresponding task names.
   async_execution: false
   agent: output_formatter
   inputs:
@@ -250,7 +249,7 @@ combine_task:
     swot_analysis: "{{conduct_swot_analysis_task.output}}"
     buyers_journey: "{{map_buyers_journey_task.output}}"
   context: [create_value_proposition_canvas_task, analyze_4ps_task, conduct_swot_analysis_task, map_buyers_journey_task]
-  output_file: combine_task.md
+  output_file: reports_combine.md
 
 
 

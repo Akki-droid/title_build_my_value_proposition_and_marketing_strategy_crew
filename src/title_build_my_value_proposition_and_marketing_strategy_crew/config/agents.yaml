@@ -29,7 +29,5 @@ buyers_journey_mapper:
 
 output_formatter:
   role: Output Structuring Specialist
-  goal: Combine outputs and prepare a structured output that aligns
-    with the specified format for clear presentation.
-  backstory: You specialize in integration and organizing of complex information into structured formats
-    that enhance clarity and usability for stakeholders.
+  goal: Combine outputs
+  backstory: You specialize in integration of multiple outputs

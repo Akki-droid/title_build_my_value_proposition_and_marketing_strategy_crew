@@ -237,10 +237,14 @@ For each Stage, provide at least one key insight that can be used in a lead gene
   output_file: report_buyers.md
 
 combine_task:
-  description: >
-    Combine outputs from create_value_proposition_canvas_task, analyze_4ps_task, conduct_swot_analysis_task and map_buyers_journey_task into a single JSON .
+  description: > 
+    'Combine the outputs of the tasks create_value_proposition_canvas_task, analyze_4ps_task, conduct_swot_analysis_task, and map_buyers_journey_task into a single structured JSON object. Ensure that the final JSON contains separate sections for each task, with each section clearly labeled using the keys: agent_name, summary of task_description and task_output.'
   expected_output: >
-    A Single JSON output report that consolidates the complete outputs of all tasks. Ensure that the complete output of each task is included with key insights, clearly segregated under headings labeled with the corresponding task names.
+    A Single JSON output report that consolidates the complete outputs of all tasks. Ensure that the complete output of each task is included with  under headings labeled with the corresponding format below:
+    <Task_Details>
+    [Include Agent_Name, Task_Description, followed by Task_Output ]
+    </Task_Details>
+
   async_execution: false
   agent: output_formatter
   inputs:

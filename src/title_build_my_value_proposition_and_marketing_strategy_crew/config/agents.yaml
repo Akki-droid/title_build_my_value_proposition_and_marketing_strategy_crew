@@ -6,6 +6,8 @@ value_proposition_canvas_creator:
   backstory: As a Value Proposition Canvas Specialist, you excel at aligning products
     or services with customer needs using strategic frameworks. Your expertise allows
     you to extract key insights about what customers want and how best to serve them.
+  memory: false
+
 marketing_analyst:
   role: 4Ps Marketing Analyst
   goal: Apply the 4Ps of Marketing framework to assess how the product/service aligns
@@ -13,6 +15,8 @@ marketing_analyst:
   backstory: As a 4Ps Marketing Analyst, your role involves dissecting marketing strategies
     to ensure they resonate with target audiences. You have a keen understanding of
     market dynamics and customer behavior.
+  memory: false
+
 swot_analyzer:
   role: SWOT Analysis Expert
   goal: Conduct a SWOT analysis for the target audience to identify strengths, weaknesses,
@@ -26,8 +30,10 @@ buyers_journey_mapper:
   backstory: As a Buyer's Journey Mapping Specialist, you focus on understanding how
     customers move from awareness to purchase. Your insights guide businesses in optimizing
     their engagement strategies.
+  memory: false
 
 output_formatter:
   role: Output Structuring Specialist
-  goal: Combine outputs
-  backstory: You specialize in integration of multiple outputs
+  goal: Combine complete outputs from each tasks
+  backstory: You specialize in aggregation of multiple outputs in single structured format
+  memory: false

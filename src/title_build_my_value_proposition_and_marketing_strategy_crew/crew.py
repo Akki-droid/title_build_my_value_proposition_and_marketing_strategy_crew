@@ -1,7 +1,6 @@
 from crewai import Agent, Crew, Process, Task, LLM
 from crewai.project import CrewBase, agent, crew, task
 import os
-
 @CrewBase
 class TitleBuildMyValuePropositionAndMarketingStrategyCrewCrew():
     """TitleBuildMyValuePropositionAndMarketingStrategyCrew crew"""
@@ -17,7 +16,7 @@ class TitleBuildMyValuePropositionAndMarketingStrategyCrewCrew():
     def marketing_analyst(self) -> Agent:
         return Agent(
             config=self.agents_config['marketing_analyst'],
-            llm=LLM(api_key=os.getenv("ANTHROPIC_API_KEY"), model="anthropic/claude-3-5-sonnet-20241022", )
+            llm=LLM(api_key=os.getenv("ANTHROPIC_API_KEY"), model="anthropic/claude-3-5-sonnet-20241022",  )
         )
 
     @agent
@@ -38,7 +37,7 @@ class TitleBuildMyValuePropositionAndMarketingStrategyCrewCrew():
     def output_formatter(self) -> Agent:
         return Agent(
             config=self.agents_config['output_formatter'],
-            llm=LLM(api_key=os.getenv("ANTHROPIC_API_KEY"), model="anthropic/claude-3-5-sonnet-20241022", )
+            llm=LLM(api_key=os.getenv("ANTHROPIC_API_KEY"), model="anthropic/claude-3-5-sonnet-20241022",  )
         )
 
 

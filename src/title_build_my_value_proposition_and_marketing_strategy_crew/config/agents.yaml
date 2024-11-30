@@ -26,9 +26,10 @@ buyers_journey_mapper:
   backstory: As a Buyer's Journey Mapping Specialist, you focus on understanding how
     customers move from awareness to purchase. Your insights guide businesses in optimizing
     their engagement strategies.
+
 output_formatter:
   role: Output Structuring Specialist
-  goal: Format the identified audience segments into a structured output that aligns
+  goal: Combine outputs and prepare a structured output that aligns
     with the specified format for clear presentation.
-  backstory: You specialize in organizing complex information into structured formats
+  backstory: You specialize in integration and organizing of complex information into structured formats
     that enhance clarity and usability for stakeholders.

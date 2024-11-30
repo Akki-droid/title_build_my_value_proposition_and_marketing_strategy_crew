@@ -239,15 +239,18 @@ For each stage, provide at least one key insight that can be used in a lead gene
 
 combine_task:
   description: >
-    Combine outputs from create_value_proposition_canvas_task, analyze_4ps_task,  conduct_swot_analysis_task, map_buyers_journey_task into a single JSON object.
+    Combine outputs from create_value_proposition_canvas_task, analyze_4ps_task, conduct_swot_analysis_task and map_buyers_journey_task into a single report.
   expected_output: >
-    A JSON object containing market trends and competitor analysis.
+    Structured Output report containing combined outputs with proper heading and formating.
+  async_execution: false
   agent: output_formatter
   inputs:
     value_canvas: "{{create_value_proposition_canvas_task.output}}"
     4p_task: "{{analyze_4ps_task.output}}"
-    swot_analysis: "{{conduct_swot_analysis_task}}"
+    swot_analysis: "{{conduct_swot_analysis_task.output}}"
     buyers_journey: "{{map_buyers_journey_task.output}}"
+  context: [create_value_proposition_canvas_task, analyze_4ps_task, conduct_swot_analysis_task, map_buyers_journey_task]
+  output_file: combine_task.md
 
 
 

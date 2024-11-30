@@ -1,6 +1,8 @@
 from crewai import Agent, Crew, Process, Task, LLM
 from crewai.project import CrewBase, agent, crew, task
 import os
+os.environ["ANTHROPIC_API_KEY"] = "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"
+
 
 @CrewBase
 class TitleBuildMyValuePropositionAndMarketingStrategyCrewCrew():
@@ -47,7 +49,6 @@ class TitleBuildMyValuePropositionAndMarketingStrategyCrewCrew():
         return Task(
             config=self.tasks_config['create_value_proposition_canvas_task'],
             output_file='output/report_canvas.md'
-            
         )
 
     @task
@@ -86,6 +87,8 @@ class TitleBuildMyValuePropositionAndMarketingStrategyCrewCrew():
             agents=self.agents, # Automatically created by the @agent decorator
             tasks=self.tasks, # Automatically created by the @task decorator
             process=Process.sequential,
-            verbose=True,
+            verbose=True
         )
+
+
 

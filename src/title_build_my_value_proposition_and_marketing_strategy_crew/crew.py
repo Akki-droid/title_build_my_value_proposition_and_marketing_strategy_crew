@@ -1,6 +1,9 @@
 from crewai import Agent, Crew, Process, Task, LLM
 from crewai.project import CrewBase, agent, crew, task
+from time import sleep
+from threading import Event, Thread
 import os
+
 @CrewBase
 class TitleBuildMyValuePropositionAndMarketingStrategyCrewCrew():
     """TitleBuildMyValuePropositionAndMarketingStrategyCrew crew"""
@@ -43,6 +46,10 @@ class TitleBuildMyValuePropositionAndMarketingStrategyCrewCrew():
 
     @task
     def create_value_proposition_canvas_task(self) -> Task:
+        print(f"Akki is analyzing the inputs...")
+        sleep(3),  # Simulate task duration
+        print(f"Task value_proposition_canvas_creator is in progress...!")
+        sleep(2),
         return Task(
             config=self.tasks_config['create_value_proposition_canvas_task'],
             output_file='output/report_canvas.md'
@@ -53,7 +60,6 @@ class TitleBuildMyValuePropositionAndMarketingStrategyCrewCrew():
         return Task(
             config=self.tasks_config['analyze_4ps_task'],
             output_file='output/report_4p.md'
-            
         )
 
     @task
@@ -86,6 +92,3 @@ class TitleBuildMyValuePropositionAndMarketingStrategyCrewCrew():
             process=Process.sequential,
             verbose=True
         )
-
-
-

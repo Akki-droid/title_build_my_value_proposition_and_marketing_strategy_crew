@@ -20,37 +20,9 @@ create_value_proposition_canvas_task:
 3. Fit Evaluation:
    Analyze how well the product or service fits with the customers needs by comparing the Pain Relievers and Gain Creators to the identified Pains and Gains.
 '
-  expected_output: A detailed Value Proposition Canvas presented in the the specified format
-      <value_proposition_canvas>
-      <customer_profile>
-      <customer_jobs>
-      [List 3-5 customer jobs]
-      </customer_jobs>
-      <customer_pains>
-      [List 3-5 customer pains]
-      </customer_pains>
-      <customer_gains>
-      [List 3-5 customer gains]
-      </customer_gains>
-      </customer_profile>
-      
-      <value_map>
-      <pain_relievers>
-      [List 3-5 pain relievers]
-      </pain_relievers>
-      <gain_creators>
-      [List 3-5 gain creators]
-      </gain_creators>
-      <products_and_services>
-      [List key features or aspects of the product/service]
-      </products_and_services>
-      </value_map>
-      <fit_evaluation>
-      [Provide a brief analysis of how well the product/service fits with the customer's needs]
-      </fit_evaluation>
-      </value_proposition_canvas>
-      Ensure that your analysis is thorough, insightful, and directly relates to the provided target audience and product/service information.
-      in the following format
+  expected_output: A concise 2 line Value Proposition Canvas presented in the  concise format
+
+
   async_execution: false
   agent: value_proposition_canvas_creator
   output_file: report_canvas.md
@@ -70,50 +42,8 @@ Using the provided information, answer the following questions for each of the 4
 
   expected_output: For each of the 4Ps provide a comprehensive analysis inside the corresponding XML tags (<product>, <price>, <place>, and <promotion>) in
     Within each section, use subheadings (example) to separate your answers to individual questions.
-    to separate your answers to individual questions
-    <product>
-    Problem Solved
-    [Analyze what problem the product/service solves for the target audience]
-    Competitive Advantage
-    [Explain how the product/service stands out compared to competitors' offerings]
-
-    Key Features/Benefits
-    [Identify the key features or benefits that are most important to the target audience]
-    </product>
-
-    <price>
-    Pricing Model
-    [Recommend a pricing model that would appeal most to the target audience]
-    
-    Perceived Value
-    [Analyze how the target audience perceives the value of the product/service relative to its price]
-    
-    Price Sensitivities
-    [Identify any specific price sensitivities within the target audience]
-    </price>
-  
-    <place>
-    Solution-Seeking Behavior
-    [Describe where the target audience typically seeks solutions like this product/service]
-  
-    Distribution Channels
-    [Recommend which distribution channels or platforms would best reach the target audience]
-    
-    Accessibility
-    [Suggest how to make the product/service easily accessible to the target audience]
-    </place>
-    
-    <promotion>
-    Marketing Messages
-    [Describe what types of marketing messages and content would resonate most with the target audience]
-    
-    Advertising Channels
-    [Recommend which advertising channels should be focused on to capture the target audience's attention]
-    Messaging Style
-    [Suggest what tone, style, or language should be used in messaging to appeal to the target audience]
-    </promotion>
-    After completing your analysis, provide a brief summary of your key findings and recommendations inside <summary> tags.
-    Remember to base all your answers on the provided information about the target audience and product/service. If you need to make any assumptions, clearly state them in your analysis.
+    to separate your answers to individual questions.
+    Ensure 1 line output for each format
 
   async_execution: false
   agent: marketing_analyst
@@ -153,21 +83,7 @@ After analysing the specific target audience description from the input
    - Note any industry shifts, regulations, or market trends that could negatively impact the relationship with this audience.
 .'
   expected_output: A Comprehensive SWOT analysis in the following SWOT table format
-
-     <swot_table>
-    | SWOT Component | Insights for Target Audience |
-    |-----------------|------------------------------|
-    | Strengths       |                              |
-    | Weaknesses      |                              |
-    | Opportunities   |                              |
-    | Threats         |                              |
-    </swot_table>
-  
-   4. For each component in the SWOT table, provide at least three detailed insights based on the target audience description. Ensure that each insight is specific, relevant, and actionable.
-  
-   5. After completing the table, provide a brief summary (2-3 sentences) of the key findings from your SWOT analysis and how they can be used to create more targeted and effective marketing strategies.
-  
-    Present your completed SWOT analysis, including the filled table and summary, within <swot_analysis> tags.
+    Present your completed SWOT analysis in 2 line format
 
   async_execution: false
   agent: swot_analyzer
@@ -238,13 +154,13 @@ For each Stage, provide at least one key insight that can be used in a lead gene
 
 combine_task:
   description: > 
-    'Combine the outputs of the tasks create_value_proposition_canvas_task, analyze_4ps_task, conduct_swot_analysis_task, and map_buyers_journey_task into a single structured JSON object. Ensure that the final JSON contains separate sections for each task, with each section clearly labeled using the keys: agent_name, summary of task_description and task_output.'
+    'Combine the outputs of the tasks create_value_proposition_canvas_task, analyze_4ps_task, conduct_swot_analysis_task, and map_buyers_journey_task into a single structured JSON object. 
+    Ensure that the final JSON contains separate sections for each task, clearly labeled using the keys: agent_name, summary of task_description and  task_output.'
   expected_output: >
-    A Single JSON output report that consolidates the complete outputs of all tasks. Ensure that the complete output of each task is included with  under headings labeled with the corresponding format below:
+    A Single JSON output report that consolidates the complete outputs of all tasks in the below format:
     <Task_Details>
-    [Include Agent_Name, Task_Description, followed by Task_Output ]
+    [Include Agent_Name, Task_Description, Task_Output]
     </Task_Details>
-
   async_execution: false
   agent: output_formatter
   inputs:
@@ -254,6 +170,8 @@ combine_task:
     buyers_journey: "{{map_buyers_journey_task.output}}"
   context: [create_value_proposition_canvas_task, analyze_4ps_task, conduct_swot_analysis_task, map_buyers_journey_task]
   output_file: reports_combine.md
+  verbose: true
+
 
 
 

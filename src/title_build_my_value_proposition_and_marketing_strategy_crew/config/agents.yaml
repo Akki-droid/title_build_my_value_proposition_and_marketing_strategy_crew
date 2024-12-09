@@ -35,5 +35,5 @@ buyers_journey_mapper:
 output_formatter:
   role: Output Structuring Specialist
   goal: Combine complete outputs from each tasks
-  backstory: You specialize in aggregation of multiple outputs in single structured format
+  backstory: As a Output Structuring Specialist, you specialize in fast aggregation of multiple outputs in single structured format without missing any output details.
   memory: false

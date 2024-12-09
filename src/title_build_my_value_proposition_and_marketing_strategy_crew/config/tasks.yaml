@@ -1,26 +1,9 @@
 ---
 create_value_proposition_canvas_task:
-  description: 'Create a Value Proposition Canvas that identifies customer jobs, pains,
-    and gains, along with pain relievers, gain creators, and products/services based
+  description: 'Create a Value Proposition Canvas  based
     on the provided target audience: {TARGET_AUDIENCE}
-    and product/service description: {PRODUCT_DESCRIPTION}
-    Now, create the Value Proposition Canvas by following these steps:
-
-
-1. Customer Profile:
-   a. Customer Jobs: Identify 3-5 key tasks or jobs the target audience is trying to accomplish. Include functional, emotional, and social jobs if applicable.
-   b. Customer Pains: List 3-5 main frustrations, challenges, or risks the target audience faces while trying to complete these jobs.
-   c. Customer Gains: Describe 3-5 positive outcomes or benefits the target audience is seeking.
-
-2. Value Map:
-   a. Pain Relievers: Explain how the product or service alleviates 3-5 of the identified customer pains.
-   b. Gain Creators: Describe how the product or service delivers 3-5 of the desired customer gains.
-   c. Products & Services: List the key features or aspects of the product or service that help customers get their jobs done, relieve pains, or create gains.
-
-3. Fit Evaluation:
-   Analyze how well the product or service fits with the customers needs by comparing the Pain Relievers and Gain Creators to the identified Pains and Gains.
-'
-  expected_output: A concise 2 line Value Proposition Canvas presented in the  concise format
+    and product/service description: {PRODUCT_DESCRIPTION} '
+  expected_output: A 1 line Value Proposition Canvas is to be presented
 
 
   async_execution: false
@@ -28,22 +11,17 @@ create_value_proposition_canvas_task:
   output_file: report_canvas.md
 
 analyze_4ps_task:
-  description: 'You are a marketing analyst tasked with applying the 4Ps of Marketing framework (Product, Price, Place, Promotion) to help understand a target audience and how a product/service aligns with their needs. You will be provided with information about the target audience and the product/service, and you should use this information to answer a series of questions about each of the 4Ps.
+  description: 'You are a marketing analyst tasked with applying the 4Ps of Marketing framework to help understand a target audience and how a product/service aligns with their needs. You will be provided with information about the target audience and the product/service, and you should use this information to answer a series of questions about each of the 4Ps.
 
 First, carefully read and analyze the following information about the target audience from the input:
 
- {TARGET_AUDIENCE}
-    
-Next, carefully read and analyze the following information about the product/service from input:
-
+ {TARGET_AUDIENCE} 
+ and
  {PRODUCT_DESCRIPTION}
+Using the provided information, answer in 1 line '
 
-Using the provided information, answer the following questions for each of the 4Ps. Be sure to base your answers on the specific details given about the target audience and product/service. If there isnt enough information to answer a question fully, make reasonable assumptions based on the available data and clearly state that you are making an assumption.'
-
-  expected_output: For each of the 4Ps provide a comprehensive analysis inside the corresponding XML tags (<product>, <price>, <place>, and <promotion>) in
-    Within each section, use subheadings (example) to separate your answers to individual questions.
-    to separate your answers to individual questions.
-    Ensure 1 line output for each format
+  expected_output:
+    Ensure 1 line output for 4p analysis.
 
   async_execution: false
   agent: marketing_analyst
@@ -51,102 +29,28 @@ Using the provided information, answer the following questions for each of the 4
 
 
 conduct_swot_analysis_task:
-  description: 'You are tasked with conducting a SWOT (Strengths, Weaknesses, Opportunities, Threats) analysis for a target audience. This analysis will help create more targeted and effective marketing strategies. Follow these instructions carefully to complete the task.
+  description: 'You are tasked with conducting a SWOT analysis for a target audience.  Follow these instructions carefully to complete the task.
 
 After analysing the specific target audience description from the input
 
  {TARGET_AUDIENCE} 
- follow these steps to conduct the SWOT analysis:
-
-1. Carefully read and analyze the target audience description.
-
-2. For each component of the SWOT analysis, consider the following:
-
-   a) Strengths:
-   - Identify key strengths of the target audience that align with a product or service.
-   - Determine what motivates them to buy (e.g., high purchasing power, brand loyalty).
-   - Note positive behaviors that make them ideal customers.
-
-   b) Weaknesses:
-   - Identify weaknesses or pain points of the target audience.
-   - Consider potential challenges or objections they might have when considering a product/service.
-   - Note any barriers to purchasing (e.g., limited budget, lack of trust, long decision-making process).
-
-   c) Opportunities:
-   - Identify opportunities in the market that could help engage with this audience better.
-   - Consider unmet needs or trends that could be leveraged (e.g., digital adoption, desire for sustainability).
-   - Look for growing demands or underserved niches within this audience.
-
-   d) Threats:
-   - Identify external threats that could affect the ability to reach or convert this audience.
-   - Consider competitors that might be better positioned to meet their needs.
-   - Note any industry shifts, regulations, or market trends that could negatively impact the relationship with this audience.
-.'
-  expected_output: A Comprehensive SWOT analysis in the following SWOT table format
-    Present your completed SWOT analysis in 2 line format
+ follow these steps to conduct the SWOT analysis: Carefully read and analyze the target audience description..'
+  expected_output: Present your completed SWOT analysis in 1 line format
 
   async_execution: false
   agent: swot_analyzer
   output_file: report_swot.md
 
 map_buyers_journey_task:
-  description: 'You are tasked with mapping out the Buyers Journey for a specific target audience and product description . Your goal is to provide insights into how the target audience moves through each stage of the journey, from becoming aware of their problem to purchasing the product/service and beyond.
+  description: 'You are tasked with mapping out the Buyers Journey for a specific target audience and product description . 
 
 First, review the following information:
 {TARGET_AUDIENCE}
 {PRODUCT_DESCRIPTION}
-
-Now, after analysing the specific target audience and product description follow these steps to complete the Buyers Journey mapping:
-
-1. Awareness Stage:
-   - Identify common challenges or pain points the target audience faces.
-   - Describe how they typically discover they have this problem.
-   - List where they seek information about their problem.
-   - Provide examples of questions they might ask at this stage.
-
-2. Consideration Stage:
-   - List potential solutions the audience might consider, including competitors.
-   - Identify key decision-making criteria for the audience.
-   - Describe concerns or hesitations they may have about choosing a solution.
-   - Suggest how to position the product/service to meet their criteria.
-
-3. Decision Stage:
-   - Identify final information or reassurance the audience needs before committing.
-   - List factors that could push them to choose the product/service.
-   - Specify the desired action for the audience to take.
-   - Suggest ways to make the buying process easier for them.
-
-4. Post-Purchase Stage:
-   - Describe the experience or result the audience expects after purchasing.
-   - Suggest ways to ensure customer satisfaction or exceed expectations.
-   - Identify opportunities for encouraging repeat business or referrals.
    
 For each Stage, provide at least one key insight that can be used in a lead generation strategy.'
-  expected_output: A structured analysis of the Buyers Journey stages with key insights for lead generation strategies. For each stage, provide at least one key insight that can be used in a lead generation strategy. Present your findings in the following format
 
-    <buyers_journey>
-    <awareness_stage>
-    [Include your analysis and insights for the Awareness Stage here]
-    </awareness_stage>
-    
-    <consideration_stage>
-    [Include your analysis and insights for the Consideration Stage here]
-    </consideration_stage>
-    
-    <decision_stage>
-    [Include your analysis and insights for the Decision Stage here]
-    </decision_stage>
-    
-    <post_purchase_stage>
-    [Include your analysis and insights for the Post-Purchase Stage here]
-    </post_purchase_stage>
-    
-    <key_insights>
-    [List at least one key insight for each stage that can be used in a lead generation strategy]
-    </key_insights>
-    </buyers_journey>
-  
-   Ensure that your analysis is specific to the provided target audience and product/service. Use the information given to make informed assumptions and provide actionable insights.
+  expected_output: A concise 1 line analysis of the Buyers Journey stages with key insights for lead generation strategies. Use the information given to make informed assumptions and provide actionable insights.
 
   async_execution: false
   agent: buyers_journey_mapper
@@ -154,10 +58,9 @@ For each Stage, provide at least one key insight that can be used in a lead gene
 
 combine_task:
   description: > 
-    'Combine the outputs of the tasks create_value_proposition_canvas_task, analyze_4ps_task, conduct_swot_analysis_task, and map_buyers_journey_task into a single structured JSON object. 
-    Ensure that the final JSON contains separate sections for each task, clearly labeled using the keys: agent_name, summary of task_description and  task_output.'
+    'Combine the outputs of the tasks create_value_proposition_canvas_task, analyze_4ps_task, conduct_swot_analysis_task, and map_buyers_journey_task into a single structured  format.'
   expected_output: >
-    A Single JSON output report that consolidates the complete outputs of all tasks in the below format:
+    A Single 1 line output report that consolidates the complete outputs of all tasks in the below format:
     <Task_Details>
     [Include Agent_Name, Task_Description, Task_Output]
     </Task_Details>

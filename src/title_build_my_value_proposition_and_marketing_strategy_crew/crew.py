@@ -1,6 +1,7 @@
 from crewai import Agent, Crew, Process, Task, LLM
 from crewai.project import CrewBase, agent, crew, task
 from time import sleep
+#
 from threading import Event, Thread
 import os
 
@@ -12,35 +13,35 @@ class TitleBuildMyValuePropositionAndMarketingStrategyCrewCrew():
     def value_proposition_canvas_creator(self) -> Agent:
         return Agent(
             config=self.agents_config['value_proposition_canvas_creator'],
-            llm=LLM(api_key=os.getenv("ANTHROPIC_API_KEY"), model="anthropic/claude-3-5-sonnet-20241022", )
+            llm=LLM(api_key=os.getenv("ANTHROPIC_API_KEY"), model="anthropic/claude-3-haiku-20240307", )
         )
 
     @agent
     def marketing_analyst(self) -> Agent:
         return Agent(
             config=self.agents_config['marketing_analyst'],
-            llm=LLM(api_key=os.getenv("ANTHROPIC_API_KEY"), model="anthropic/claude-3-5-sonnet-20241022",  )
+            llm=LLM(api_key=os.getenv("ANTHROPIC_API_KEY"), model="anthropic/claude-3-haiku-20240307",  )
         )
 
     @agent
     def swot_analyzer(self) -> Agent:
         return Agent(
             config=self.agents_config['swot_analyzer'],
-            llm=LLM(api_key=os.getenv("ANTHROPIC_API_KEY"), model="anthropic/claude-3-5-sonnet-20241022", )
+            llm=LLM(api_key=os.getenv("ANTHROPIC_API_KEY"), model="anthropic/claude-3-haiku-20240307", )
         )
 
     @agent
     def buyers_journey_mapper(self) -> Agent:
         return Agent(
             config=self.agents_config['buyers_journey_mapper'],
-            llm=LLM(api_key=os.getenv("ANTHROPIC_API_KEY"), model="anthropic/claude-3-5-sonnet-20241022", )
+            llm=LLM(api_key=os.getenv("ANTHROPIC_API_KEY"), model="anthropic/claude-3-haiku-20240307", )
         )
 
     @agent
     def output_formatter(self) -> Agent:
         return Agent(
             config=self.agents_config['output_formatter'],
-            llm=LLM(api_key=os.getenv("ANTHROPIC_API_KEY"), model="anthropic/claude-3-5-sonnet-20241022",  )
+            llm=LLM(api_key=os.getenv("ANTHROPIC_API_KEY"), model="anthropic/claude-3-haiku-20240307",  )
         )
 
 

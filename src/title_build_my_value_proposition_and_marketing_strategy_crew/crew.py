@@ -4,7 +4,6 @@ import os
 
 os.environ["anthropic_model"] = "anthropic/claude-3-haiku-20240307"
 
-
 @CrewBase
 class TitleBuildMyValuePropositionAndMarketingStrategyCrewCrew():
     """TitleBuildMyValuePropositionAndMarketingStrategyCrew crew"""
